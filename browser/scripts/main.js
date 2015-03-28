@@ -2,7 +2,8 @@
     // -12 0 c
     // key http://tieba.baidu.com/p/1622260506
     var ECHO_WS_URI = 'ws://html5rocks.websocket.org/echo';
-    var WS_URI = 'ws://121.41.107.136:9300/';
+    //var WS_URI = 'ws://121.41.107.136:9300/';
+    var WS_URI = 'ws://192.168.1.114:9300/';
     var HOLD_THRESHOLD = 0.2; // s, hold time
     var MIN_DISTANCE = 0; // cm
     var MAX_DISTANCE = 50; // cm
@@ -12,9 +13,6 @@
     var TARGET_START = document.getElementById('start');
     var IS_FIRST_PLAY = true;
     var SCORE = 0;
-    var MAIBAO_NOTES = [
-        ["E4", 0.5], ["E4", 0.5], ["E4", 0.5], ["C4", 0.25], ["E4", 0.25], ["G4", 0.5], ["G3", 0.5], ["C4", 0.25], ["G3", 0.25], ["E3", 0.5], ["A3", 0.5], ["B3", 0.5], ["Bb3", 0.25], ["A3", 0.5], ["G3", 0.5], ["E4", 0.5], ["G4", 0.25], ["A4", 0.25], ["F4", 0.25], ["G4", 0.25], ["E4", 0.25], ["C4", 0.25], ["D4", 0.25], ["B3", 0.5], ["C4", 0.5], ["G3", 0.25], ["E3", 0.25], ["A3", 0.5], ["B3", 0.25], ["Bb3", 0.5], ["A3", 0.5], ["G3", 0.5], ["E4", 0.5], ["G4", 0.5], ["A4", 0.5], ["F4", 0.5], ["G4", 0.5], ["E4", 0.5], ["D4", 0.25], ["C4", 0.25], ["B3", 1], ["G4", 0.5], ["F4", 0.25], ["F4", 0.25], ["E4", 0.5], ["E4", 0.5], ["G3", 0.5], ["A3", 0.5], ["C4", 0.5], ["A3", 0.25], ["C4", 0.25], ["D4", 0.5], ["G4", 0.25], ["F4", 0.25], ["F4", 0.5], ["E4", 0.5], ["E4", 0.5], ["C5", 0.5], ["C5", 0.5], ["C5", 0.5], ["G4", 0.25], ["F4", 0.25], ["F4", 0.25], ["E4", 0.5], ["E4", 0.5], ["G3", 0.25], ["A3", 0.25], ["C4", 0.5], ["A3", 0.25], ["C4", 0.25], ["D4", 0.5], ["E4", 0.5], ["D4", 0.5], ["C4", 0.5], ["G4", 0.5], ["F4", 0.25], ["F4", 0.25], ["E4", 0.25], ["E4", 0.25], ["G3", 0.25], ["A3", 0.25], ["C4", 0.5], ["A3", 0.25], ["C4", 0.25], ["D4", 0.25], ["G4", 0.5], ["F4", 0.25], ["F4", 0.25], ["E4", 0.5], ["E4", 0.5], ["C4", 0.5], ["C4", 0.5], ["C4", 0.5], ["G4", 0.25], ["F4", 0.25], ["F4", 0.25], ["E4", 0.25], ["E4", 0.5], ["G3", 0.25], ["A3", 0.25], ["C4", 0.5], ["A3", 0.5], ["C4", 0.25], ["D4", 0.25], ["E4", 0.5], ["D4", 0.5], ["C4", 0.5], ["C4", 0.25], ["C4", 0.25], ["C4", 0.25], ["C4", 0.25], ["D4", 0.25], ["E4", 0.25], ["C4", 0.25], ["A3", 0.25], ["G3", 1], ["C4", 0.25], ["C4", 0.5], ["C4", 0.25], ["C4", 0.25], ["D4", 0.25], ["E4", 0.25], ["C4", 0.25], ["C4", 0.25], ["C4", 0.5], ["C4", 0.25], ["D4", 0.25], ["E4", 0.25], ["C4", 0.25], ["A3", 0.5], ["G3", 0.5], ["E4", 0.25], ["E4", 0.25], ["E4", 0.5], ["C4", 0.25], ["E4", 0.25], ["G4", 0.5], ["G3", 0.5], ["C4", 0.5], ["G3", 0.5], ["E3", 0.5], ["A3", 0.5], ["B3", 0.5], ["Bb3", 0.5], ["A3", 0.5], ["G3", 0.5], ["E4", 0.25], ["F4", 0.25], ["A4", 0.25], ["F4", 0.25], ["G4", 0.5], ["E4", 0.25], ["C4", 0.25], ["D4", 0.5], ["B3", 0.5], ["C4", 0.25], ["G3", 0.25], ["E3", 1], ["A3", 0.5], ["B3", 0.5], ["Bb3", 0.5], ["A3", 0.5], ["G3", 0.5], ["E4", 0.5], ["F4", 0.25], ["A4", 0.25], ["F4", 0.25], ["G4", 0.5], ["E4", 0.25], ["C4", 0.25], ["D4", 0.5], ["B3", 0.5], ["C4", 0.5], ["G3", 0.5], ["E3", 1], ["A3", 0.5], ["B3", 0.5], ["Bb3", 0.5], ["A3", 0.5], ["G3", 0.5], ["E4", 0.5], ["G4", 0.25], ["A4", 0.25], ["F4", 0.25], ["G4", 0.25], ["E4", 0.25], ["C4", 0.25], ["D4", 0.25], ["B3", 0.5], ["E4", 0.25], ["C4", 0.25], ["G3", 0.25], ["G3", 0.25], ["A3", 0.25], ["F4", 0.5], ["F4", 0.5], ["A3", 0.5], ["B3", 0.5], ["A4", 0.5], ["A4", 0.5], ["A4", 0.5], ["G4", 0.5], ["F4", 1], ["E4", 1], ["C4", 1], ["A3", 0.5], ["G3", 0.5], ["E4", 0.25], ["C4", 0.25], ["G3", 0.5], ["G3", 0.25], ["A3", 0.25], ["F4", 0.25], ["F4", 0.25], ["A3", 1], ["B3", 0.5], ["F4", 0.5], ["F4", 0.25], ["F4", 0.5], ["E4", 0.25], ["D4", 0.25], ["C4", 0.25], ["E3", 0.5], ["E3", 0.25], ["C4", 0.5]
-    ];
 
     function initWebSocket() {
         var connection = new WebSocket(WS_URI);
@@ -34,20 +32,20 @@
             if (ts - last_ts < HOLD_THRESHOLD) { // move too quick
                 return;
             }
-            var key = json_data.data;
-            log(key);
-            if (key <= MIN_DISTANCE || key > MAX_DISTANCE) {
+            var distance = json_data.data;
+            if (distance <= MIN_DISTANCE || distance > MAX_DISTANCE) {
                 return;
             }
-            log(parseInt(key / MAGIC_DIV));
             //Player.playASound(parseInt(key / MAGIC_DIV));
             last_ts = ts;
+            var key = Math.ceil(distance / 4.17); // 4.17 = 50 / (MAX_NOTE / MIN_NOTE), via player.js
 
             //计算正误
             //Player.rhythm;
-            console.log( 'play', Player.rhythm);
-            console.log('key', key);
-            if( Math.abs(Player.rhythm - key) < 8){
+            console.debug('play', Player.rhythm);
+            console.debug('key', key);
+            $('#played_code').html(key);
+            if( Math.abs(Player.rhythm - key) < 2){
                 plusScore(10);
             }  
         };
@@ -82,8 +80,15 @@
     }
 
     function scrollCode(){//字体滚动
-        $('#code').html(MAIBAO_NOTES);
-        $('#code').sinescroller();
+        //$('#code').sinescroller();
+    }
+
+    function onLrcUpdate(value_1, value_2, value_3, value_4, value_5) {
+        $('#code_1').html(value_1);
+        $('#code_2').html(value_2);
+        $('#code_3').html(value_3);
+        $('#code_4').html(value_4);
+        $('#code_5').html(value_5);
     }
 
     function plusScore(value){//加分以及动画
@@ -102,6 +107,7 @@
     function gameInit() {
         // TODO
         gameStart();
+        Player.simpleSheetMusicOneNote.tempo = 80;
     }
 
     function gameStart() {
@@ -112,8 +118,8 @@
     }
 
     initWebSocket();
-    //Player.demoPlay(14);
     gameInit();
+    Player.onLrcUpdate = onLrcUpdate;
 
 })();
 

@@ -16,23 +16,21 @@
         'F': 4,
         'G': 5,
         'A': 6,
-        'B': 7,
+        'B': 7
     };
     var SUPER_MARIO_NOTES = [
         ["E4", 0.5], ["E4", 0.5], ["E4", 0.5], ["C4", 0.25], ["E4", 0.25], ["G4", 0.5], ["G3", 0.5], ["C4", 0.25], ["G3", 0.25], ["E3", 0.5], ["A3", 0.5], ["B3", 0.5], ["Bb3", 0.25], ["A3", 0.5], ["G3", 0.5], ["E4", 0.5], ["G4", 0.25], ["A4", 0.25], ["F4", 0.25], ["G4", 0.25], ["E4", 0.25], ["C4", 0.25], ["D4", 0.25], ["B3", 0.5], ["C4", 0.5], ["G3", 0.25], ["E3", 0.25], ["A3", 0.5], ["B3", 0.25], ["Bb3", 0.5], ["A3", 0.5], ["G3", 0.5], ["E4", 0.5], ["G4", 0.5], ["A4", 0.5], ["F4", 0.5], ["G4", 0.5], ["E4", 0.5], ["D4", 0.25], ["C4", 0.25], ["B3", 1], ["G4", 0.5], ["F4", 0.25], ["F4", 0.25], ["E4", 0.5], ["E4", 0.5], ["G3", 0.5], ["A3", 0.5], ["C4", 0.5], ["A3", 0.25], ["C4", 0.25], ["D4", 0.5], ["G4", 0.25], ["F4", 0.25], ["F4", 0.5], ["E4", 0.5], ["E4", 0.5], ["C5", 0.5], ["C5", 0.5], ["C5", 0.5], ["G4", 0.25], ["F4", 0.25], ["F4", 0.25], ["E4", 0.5], ["E4", 0.5], ["G3", 0.25], ["A3", 0.25], ["C4", 0.5], ["A3", 0.25], ["C4", 0.25], ["D4", 0.5], ["E4", 0.5], ["D4", 0.5], ["C4", 0.5], ["G4", 0.5], ["F4", 0.25], ["F4", 0.25], ["E4", 0.25], ["E4", 0.25], ["G3", 0.25], ["A3", 0.25], ["C4", 0.5], ["A3", 0.25], ["C4", 0.25], ["D4", 0.25], ["G4", 0.5], ["F4", 0.25], ["F4", 0.25], ["E4", 0.5], ["E4", 0.5], ["C4", 0.5], ["C4", 0.5], ["C4", 0.5], ["G4", 0.25], ["F4", 0.25], ["F4", 0.25], ["E4", 0.25], ["E4", 0.5], ["G3", 0.25], ["A3", 0.25], ["C4", 0.5], ["A3", 0.5], ["C4", 0.25], ["D4", 0.25], ["E4", 0.5], ["D4", 0.5], ["C4", 0.5], ["C4", 0.25], ["C4", 0.25], ["C4", 0.25], ["C4", 0.25], ["D4", 0.25], ["E4", 0.25], ["C4", 0.25], ["A3", 0.25], ["G3", 1], ["C4", 0.25], ["C4", 0.5], ["C4", 0.25], ["C4", 0.25], ["D4", 0.25], ["E4", 0.25], ["C4", 0.25], ["C4", 0.25], ["C4", 0.5], ["C4", 0.25], ["D4", 0.25], ["E4", 0.25], ["C4", 0.25], ["A3", 0.5], ["G3", 0.5], ["E4", 0.25], ["E4", 0.25], ["E4", 0.5], ["C4", 0.25], ["E4", 0.25], ["G4", 0.5], ["G3", 0.5], ["C4", 0.5], ["G3", 0.5], ["E3", 0.5], ["A3", 0.5], ["B3", 0.5], ["Bb3", 0.5], ["A3", 0.5], ["G3", 0.5], ["E4", 0.25], ["F4", 0.25], ["A4", 0.25], ["F4", 0.25], ["G4", 0.5], ["E4", 0.25], ["C4", 0.25], ["D4", 0.5], ["B3", 0.5], ["C4", 0.25], ["G3", 0.25], ["E3", 1], ["A3", 0.5], ["B3", 0.5], ["Bb3", 0.5], ["A3", 0.5], ["G3", 0.5], ["E4", 0.5], ["F4", 0.25], ["A4", 0.25], ["F4", 0.25], ["G4", 0.5], ["E4", 0.25], ["C4", 0.25], ["D4", 0.5], ["B3", 0.5], ["C4", 0.5], ["G3", 0.5], ["E3", 1], ["A3", 0.5], ["B3", 0.5], ["Bb3", 0.5], ["A3", 0.5], ["G3", 0.5], ["E4", 0.5], ["G4", 0.25], ["A4", 0.25], ["F4", 0.25], ["G4", 0.25], ["E4", 0.25], ["C4", 0.25], ["D4", 0.25], ["B3", 0.5], ["E4", 0.25], ["C4", 0.25], ["G3", 0.25], ["G3", 0.25], ["A3", 0.25], ["F4", 0.5], ["F4", 0.5], ["A3", 0.5], ["B3", 0.5], ["A4", 0.5], ["A4", 0.5], ["A4", 0.5], ["G4", 0.5], ["F4", 1], ["E4", 1], ["C4", 1], ["A3", 0.5], ["G3", 0.5], ["E4", 0.25], ["C4", 0.25], ["G3", 0.5], ["G3", 0.25], ["A3", 0.25], ["F4", 0.25], ["F4", 0.25], ["A3", 1], ["B3", 0.5], ["F4", 0.5], ["F4", 0.25], ["F4", 0.5], ["E4", 0.25], ["D4", 0.25], ["C4", 0.25], ["E3", 0.5], ["E3", 0.25], ["C4", 0.5]
     ];
-    SUPER_MARIO_NOTES = _.union(SUPER_MARIO_NOTES, SUPER_MARIO_NOTES);
-    var MAIBAO_SOUNDS = _.map(MAIBAO_NOTES, function(note) {
-        var a = note[0];
-        var b = note[b];
-        return new Audio(Notes.getDataURI(a, {freq: 440, seconds: 0.1}));
-    });
+    var MIN_NOTE = 24; // G3
+    var MAX_NOTE = 36; // C5
+
+    SUPER_MARIO_NOTES = [].concat(SUPER_MARIO_NOTES, SUPER_MARIO_NOTES);
 
     var Player = {
         _self : this,
-        simpleSheetMusic: new simple_player(),
         simpleSheetMusicOneNote: new simple_player(),
-        rhythm : '', //当前权值，对外接口 
+        rhythm : '', //当前权值，对外接口
+        onLrcUpdate: null,
         playASound: function(key) {
             //key = parseInt(key, 10) % 24;
             if (key < 0) {
@@ -51,11 +49,19 @@
                 setTimeout(function() {
                     Player.simpleSheetMusicOneNote.playOneNote(value);
                     //console.log(value[0]);
-                    Player.rhythm = Player.getRhythm( value[0].slice(0,1), value[0].slice(1,2) );
+                    Player.rhythm = Player.getRhythm(value);
+                    if (Player.onLrcUpdate !== null) {
+                        Player.onLrcUpdate(
+                            Math.ceil(Player.getRhythm(music[index]) - MIN_NOTE),
+                            Math.ceil(Player.getRhythm(music[index + 1]) - MIN_NOTE),
+                            Math.ceil(Player.getRhythm(music[index + 2]) - MIN_NOTE),
+                            Math.ceil(Player.getRhythm(music[index + 3]) - MIN_NOTE),
+                            Math.ceil(Player.getRhythm(music[index + 4]) - MIN_NOTE)
+                        );
+                    }
                 }, sleepTime);
                 sleepTime += value[1] * 60 * 1000 / Player.simpleSheetMusicOneNote.tempo;
             });
-            //Player.simpleSheetMusic.play(music);
         },
 
         demoPlay: function(keyDelta) { // TODO 调整音高 / 调整间隔
@@ -68,14 +74,15 @@
             });
         },
 
-        getRhythm : function(key1, key2){
+        getRhythm : function(note){
             // TODO 换算结果
-            var value = Number(key2)*7+note_map[key1];
+            var match = /([CDEFGAB])b?(\d)/.exec(note[0]);
+            var value = Number(match[2]) * 7 + note_map[match[1]];
             return Number(value);
         },
 
         playMario: function() {
-            Player.playAMusic(MAIBAO_NOTES);
+            Player.playAMusic(SUPER_MARIO_NOTES);
         }
 
     };
