@@ -251,7 +251,7 @@ function simple_player(){
 	  				if(player_obj.status && player_obj.oscillator){
 	  					player_obj.oscillator.stop(0);
 	  					player_obj.status = 0;
-	  				} 
+	  				}
 	  			}else{
 	  				//正常音符
 	  				if(player_obj.status != 1){
@@ -276,6 +276,41 @@ function simple_player(){
 	  		}
 	 })();
 	}
+
+    this.playOneNote = function(note) {
+        var i = 0;
+        var interval_time = 60000 / this.tempo;
+        var that = this;
+        (function(){
+            //音符
+            var music_note = note[0].toUpperCase();
+            //持续时间
+            var last = note[1]*interval_time;
+
+            if(music_note == '0'){
+                //处理休止符
+                if(that.status && that.oscillator){
+                    that.oscillator.stop(0);
+                    that.status = 0;
+                }
+            }else{
+                //正常音符
+                if(that.status != 1){
+                    that.status = 1;
+                    //新建oscillator
+                    that.new_oscillator();
+                    that.oscillator.start(0);
+                }
+                //更改频率
+                that.oscillator.frequency.value = notes_table[music_note];
+                //音量淡出效果
+                fadeout(that.volumeNode,0,last);
+                addtunecolor(that,last);
+            }
+            i++;
+            //音符持续时间后，调用自己进行下一个音符
+        })();
+    }
 
 	//播放音乐，对外接口
 	this.play = function(sheet_music){
