@@ -25,7 +25,7 @@ def main():
         distance = int(sensor.get_distance())
         server.send(str(distance))
         print distance
-        time.sleep(0.2)
+        time.sleep(0.001)
 
 if __name__ == "__main__":
     main()
