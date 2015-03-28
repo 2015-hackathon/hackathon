@@ -41,11 +41,10 @@
             var key = Math.ceil(distance / 4.17); // 4.17 = 50 / (MAX_NOTE / MIN_NOTE), via player.js
 
             //计算正误
-            //Player.rhythm;
             console.debug('play', Player.rhythm);
             console.debug('key', key);
             $('#played_code').html(key);
-            if( Math.abs(Player.rhythm - key) < 2){
+            if( Math.abs(Player.rhythm - key -24) < 2){
                 plusScore(10);
             }  
         };
@@ -56,10 +55,6 @@
             TARGET_VIDEO.volume=0; 
             Player.playMario();
             scrollCode();
-            // 44s后节奏结束，重新播放
-            //setTimeout(
-            //    function(){Player.playMario();
-            //}, 45000);
         }, 6000);//TODO
     }
 
@@ -79,10 +74,6 @@
 
     }
 
-    function scrollCode(){//字体滚动
-        //$('#code').sinescroller();
-    }
-
     function onLrcUpdate(value_1, value_2, value_3, value_4, value_5) {
         $('#code_1').html(value_1);
         $('#code_2').html(value_2);
@@ -96,7 +87,7 @@
         var $i=$("<b>").text("+"+n);
         var x=836, y=379;
         SCORE += value;
-        //var x=e.pageX,y=e.pageY;
+        localStorage.setItem('SCORE',SCORE);
         $i.css( {top:y-20,left:x,position:"absolute",color:"#E94F06"} );
         $("body").append($i);
         $i.animate( {top:y-180,opacity:0,"font-size":"20em"}, 1500, function(){
@@ -107,6 +98,7 @@
     function gameInit() {
         // TODO
         gameStart();
+        localStorage.setItem('SCORE',0);
         Player.simpleSheetMusicOneNote.tempo = 80;
     }
 
