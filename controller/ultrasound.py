@@ -27,7 +27,8 @@ class Ultrasound(object):
         GPIO.output(self.trig, GPIO.LOW)
         start = time.time()
         while GPIO.input(self.echo) == GPIO.LOW:
-            pass
+            if time.time() - start > self.time_break:
+                return self.get_distance()
         start = time.time()
         while GPIO.input(self.echo) == GPIO.HIGH:
             pass
