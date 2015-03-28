@@ -23,6 +23,8 @@
 
     var Player = {
         simpleSheetMusic: new simple_player(),
+        simpleSheetMusicOneNote: new simple_player(),
+
         playASound: function(key) {
             //key = parseInt(key, 10) % 24;
             if (key < 0) {
@@ -37,12 +39,11 @@
 
         playAMusic: function(music) {
             var sleepTime = 0;
-            $.each(music, function (index, value) {
+            $.each(music, function (index, value) { // TODO 一点点小问题
                 setTimeout(function() {
-                    Player.simpleSheetMusic.play(value);
-                    sleepTime += value[1] * 100;
-                    log(sleepTime);
+                    Player.simpleSheetMusicOneNote.playOneNote(value);
                 }, sleepTime);
+                sleepTime += value[1] * 60 * 1000 / Player.simpleSheetMusicOneNote.tempo;
             });
             //Player.simpleSheetMusic.play(music);
         },
