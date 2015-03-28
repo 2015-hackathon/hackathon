@@ -1,0 +1,11 @@
+Metadata-Version: 1.0
+Name: ultrasound
+Version: 1.10.27
+Summary: Ultrasound wave sensor modal for Raspberry, get distance and speed
+Home-page: UNKNOWN
+Author: xiaocao
+Author-email: xiaocao.grasses@gmail.com
+License: MIT License
+Description: UNKNOWN
+Keywords: Raspberry,ultrasound
+Platform: Raspberry Linux
