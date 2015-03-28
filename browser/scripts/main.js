@@ -88,6 +88,13 @@
         $('#code_5').html(value_5);
     }
 
+    function onPlayEnd(){
+        document.getElementById('endBtn').click();
+        var score = localStorage.getItem('SCORE') ? localStorage.getItem('SCORE') : 0;
+        document.getElementById('result-body').innerHTML='感谢您的支持，您的得分是：'+score;
+        TARGET_VIDEO.volume = 1;
+    }
+
     function plusScore(value){//加分以及动画
         var n= value;//Math.round(Math.random()*10);
         var $i=$("<b>").text("+"+n);
@@ -118,6 +125,7 @@
     initWebSocket();
     gameInit();
     Player.onLrcUpdate = onLrcUpdate;
+    Player.onPlayEnd = onPlayEnd;
 
 })();
 

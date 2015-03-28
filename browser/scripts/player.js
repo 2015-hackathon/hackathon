@@ -41,6 +41,7 @@
         simpleSheetMusicOneNote: new simple_player(),
         rhythm : '', //当前权值，对外接口
         onLrcUpdate: null,
+        onPlayEnd: null,
         playASound: function(key) {
             //key = parseInt(key, 10) % 24;
             if (key < 0) {
@@ -75,17 +76,14 @@
                         }
                     }
                     if( musicLength==0 ){//播放结束
-                        Player.playEnd();
+                        if (Player.onPlayEnd !== null) {
+                            Player.onPlayEnd();
+                        }
+
                     }
                 }, sleepTime);
                 sleepTime += value[1] * 60 * 1000 / Player.simpleSheetMusicOneNote.tempo;
             });
-        },
-
-        playEnd: function(){
-            document.getElementById('endBtn').click();
-            var score = localStorage.getItem('SCORE') ? localStorage.getItem('SCORE') : 0;
-            document.getElementById('result-body').innerHTML='感谢您的支持，您的得分是：'+score;
         },
 
         demoPlay: function(keyDelta) { // TODO 调整音高 / 调整间隔
