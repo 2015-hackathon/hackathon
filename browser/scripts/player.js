@@ -24,7 +24,7 @@
     var Player = {
         simpleSheetMusic: new simple_player(),
         simpleSheetMusicOneNote: new simple_player(),
-
+        rhythm : '', //当前权值，对外接口 
         playASound: function(key) {
             //key = parseInt(key, 10) % 24;
             if (key < 0) {
@@ -42,6 +42,8 @@
             $.each(music, function (index, value) { // TODO 一点点小问题
                 setTimeout(function() {
                     Player.simpleSheetMusicOneNote.playOneNote(value);
+                    rhythm = getRhythm(value);
+                    //console.log(value);
                 }, sleepTime);
                 sleepTime += value[1] * 60 * 1000 / Player.simpleSheetMusicOneNote.tempo;
             });
@@ -56,6 +58,11 @@
                     }
                 }, 400 * i);
             });
+        },
+
+        getRhythm : function(key){
+            // TODO 换算结果
+            return;
         },
 
         playMario: function() {

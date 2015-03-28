@@ -43,29 +43,33 @@
 
 <div class="container">
     <div class="row">
-        Header
-    </div>
-    <div class="row">
-        <div class="col-md-8">
-            Video
+        <br><br>
+        <div class="col-md-12">
+            <video id="video" class="video-js" width="100%" height="auto" controls="controls" preload="auto"  poster=""> 
+                <source src="video/mario.mp4" type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"' /> 
+            </video>
+            <br>
+            <div class="control">
+                <button class="btn btn-success" id="start">开始</button>    
+            </div>
+            <br>
         </div>
-        <div class="col-md-4">
-            <h2>分数：88</h2>
-        </div>
     </div>
 
-</div><!-- /.container -->
+    <div class="col-md-12">
+        <div class="control">
+            <div class="code" id="code"></div>
+        </div>
+    </div>
+</div>
 
-
-<!-- Bootstrap core JavaScript
-================================================== -->
-<!-- Placed at the end of the document so the pages load faster -->
-<script src="http://libs.useso.com/js/jquery/1.11.1/jquery.min.js"></script>
-<script src="http://libs.useso.com/js/bootstrap/3.2.0/js/bootstrap.js"></script>
-<script src="http://libs.useso.com/js/underscore.js/1.6.0/underscore-min.js"></script>
+<script src="scripts/libs/jquery.min.js"></script>
+<script src="scripts/libs/underscore-min.js"></script>
 <script src="scripts/libs/simpleSheetMusic.js"></script>
 <script src="scripts/libs/audio.js"></script>
 <script src="scripts/player.js"></script>
+<script src="scripts/libs/jquery.sinescroller.min.js"></script>
 <script src="scripts/main.js"></script>
+
 </body>
 </html>
