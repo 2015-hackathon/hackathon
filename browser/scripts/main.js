@@ -13,6 +13,7 @@
     var TARGET_START = document.getElementById('start');
     var IS_FIRST_PLAY = true;
     var SCORE = 0;
+    var IS_GAME_STARTED = false;
 
     function initWebSocket() {
         var connection = new WebSocket(WS_URI);
@@ -40,6 +41,11 @@
             last_ts = ts;
             var key = Math.ceil(distance / 4.17); // 4.17 = 50 / (MAX_NOTE / MIN_NOTE), via player.js
 
+            if (!IS_GAME_STARTED) {
+                Player.playASound(key + 24);
+                return;
+            }
+
             //计算正误
             console.debug('play', Player.rhythm);
             console.debug('key', key);
@@ -51,7 +57,8 @@
     }
 
     function playLater(){//延时6s启动
-        setTimeout( function(){ 
+        IS_GAME_STARTED = true;
+        setTimeout( function(){
             TARGET_VIDEO.volume=0; 
             Player.playMario();
         }, 6000);//TODO
