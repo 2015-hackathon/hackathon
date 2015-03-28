@@ -4,7 +4,7 @@
     var ECHO_WS_URI = 'ws://html5rocks.websocket.org/echo';
     //var WS_URI = 'ws://121.41.107.136:9300/';
     var WS_URI = 'ws://192.168.1.114:9300/';
-    var HOLD_THRESHOLD = 0.2; // s, hold time
+    var HOLD_THRESHOLD = 0.1; // s, hold time
     var MIN_DISTANCE = 0; // cm
     var MAX_DISTANCE = 50; // cm
     var MAGIC_DIV = MAX_DISTANCE / 24.0; 
@@ -44,7 +44,7 @@
             console.debug('play', Player.rhythm);
             console.debug('key', key);
             $('#played_code').html(key);
-            if( Math.abs(Player.rhythm - key -24) < 2){
+            if( Math.abs(Player.rhythm - key -24) < 1){
                 plusScore(10);
             }  
         };
@@ -54,7 +54,6 @@
         setTimeout( function(){ 
             TARGET_VIDEO.volume=0; 
             Player.playMario();
-            scrollCode();
         }, 6000);//TODO
     }
 

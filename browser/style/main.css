@@ -14,8 +14,8 @@ body {
 	font-size: 0.8em;
 }
 .code {
-	height: 150px;
-	font-size: 30px;
+	height: 100%;
+	font-size: 45px;
 	font-weight: bold;
 	color: #b00;
 	border: 1px solid #f0f0f0;

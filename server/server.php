@@ -17,7 +17,7 @@ function wsOnMessage($clientID, $message, $messageLength, $binary) {
 		//一个用户
 		$Server->wsSend($clientID, time() );
 	else
-		$res = array('time'=>time(), 'data'=>(int)$message ); 
+		$res = array('time'=>microtime(true), 'data'=>(int)$message );
 		foreach ( $Server->wsClients as $id => $client )
 			if ( $id != $clientID )
 				$Server->wsSend($id, json_encode( $res ) );
