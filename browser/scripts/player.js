@@ -56,7 +56,7 @@
         playAMusic: function(music) {
             var sleepTime = 0;
             var musicLength = music.length;
-            $.each(music, function (index, value) { // TODO 一点点小问题
+            $.each(music, function (index, value) { // TODO 太多 setTimeOut
                 setTimeout(function() {
                     musicLength--;
                     Player.simpleSheetMusicOneNote.playOneNote(value);

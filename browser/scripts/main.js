@@ -14,6 +14,7 @@
     var IS_FIRST_PLAY = true;
     var SCORE = 0;
     var IS_GAME_STARTED = false;
+    var DENO_PLAY_LAST_KEY = null;
 
     function initWebSocket() {
         var connection = new WebSocket(WS_URI);
@@ -42,8 +43,12 @@
             var key = Math.ceil(distance / 4.17); // 4.17 = 50 / (MAX_NOTE / MIN_NOTE), via player.js
 
             if (!IS_GAME_STARTED) {
+                if (DENO_PLAY_LAST_KEY === key) {
+                    return;
+                }
                 Player.playASound(key + 24);
                 $('#played_code').html(key);
+                DENO_PLAY_LAST_KEY = key;
                 return;
             }
 
@@ -62,7 +67,7 @@
         setTimeout( function(){
             TARGET_VIDEO.volume=0; 
             Player.playMario();
-        }, 6000);//TODO
+        }, 6000);
     }
 
     function playVideo(){
@@ -115,7 +120,6 @@
     }
 
     function gameInit() {
-        // TODO
         gameStart();
         localStorage.setItem('SCORE',0);
         Player.simpleSheetMusicOneNote.tempo = 80;
