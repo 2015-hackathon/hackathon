@@ -30,3 +30,11 @@ body {
 #endBtn{
   visibility: hidden;
 }
+
+#code_1 {
+    color: darkgreen;
+}
+
+#code_2 {
+    color: #ec971f;
+}
