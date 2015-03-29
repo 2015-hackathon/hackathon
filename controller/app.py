@@ -5,9 +5,9 @@ import sys
 import time
 ROOT = os.path.dirname(os.path.abspath(__file__))
 try:
-	import controller
+    import controller
 except ImportError:
-	sys.path.append(os.path.join(ROOT, ".."))
+    sys.path.append(os.path.join(ROOT, ".."))
 from websocket import create_connection
 from controller import ultrasound
 
@@ -18,8 +18,8 @@ TIME_BREAK = 0.5
 WS_URL = "ws://121.41.107.136:9300/"
 
 
-def main():
-    server = create_connection(WS_URL)
+def main(url):
+    server = create_connection(url)
     sensor = ultrasound.Ultrasound(TRIG, ECHO, TIME_BREAK)
     while True:
         distance = int(sensor.get_distance())
@@ -28,5 +28,4 @@ def main():
         time.sleep(0.001)
 
 if __name__ == "__main__":
-    main()
-
+    main(sys.argv[1] if len(sys.argv) > 1 else WS_URL)
