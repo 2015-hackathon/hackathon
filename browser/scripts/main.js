@@ -43,6 +43,7 @@
 
             if (!IS_GAME_STARTED) {
                 Player.playASound(key + 24);
+                $('#played_code').html(key);
                 return;
             }
 
@@ -92,10 +93,14 @@
         document.getElementById('endBtn').click();
         var score = localStorage.getItem('SCORE') ? localStorage.getItem('SCORE') : 0;
         document.getElementById('result-body').innerHTML='感谢您的支持，您的得分是：'+score;
+        IS_GAME_STARTED = false;
         TARGET_VIDEO.volume = 1;
     }
 
     function plusScore(value){//加分以及动画
+        if (!IS_GAME_STARTED) {
+            return;
+        }
         var n= value;//Math.round(Math.random()*10);
         var $i=$("<b>").text("+"+n);
         var x=836, y=379;
@@ -106,6 +111,7 @@
         $i.animate( {top:y-180,opacity:0,"font-size":"20em"}, 1500, function(){
             $i.remove();
         });
+        document.getElementById('played_score').innerHTML = SCORE;
     }
 
     function gameInit() {
