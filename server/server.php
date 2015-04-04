@@ -48,6 +48,6 @@ $Server->bind('message', 'wsOnMessage');
 $Server->bind('open', 'wsOnOpen');
 $Server->bind('close', 'wsOnClose');
 //$Server->wsStartServer('121.41.107.136', 9300);
-$Server->wsStartServer('192.168.1.114', 9300);
+$Server->wsStartServer('192.168.1.100', 9300);
 
 ?>
