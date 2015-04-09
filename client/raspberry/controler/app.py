@@ -9,13 +9,13 @@ try:
 except ImportError:
     sys.path.append(os.path.join(ROOT, ".."))
 from websocket import create_connection
-from controller import ultrasound
+import ultrasound
 
 TRIG = 20
 ECHO = 21
 TIME_BREAK = 0.5
 
-WS_URL = "ws://121.41.107.136:9300/"
+WS_URL = "ws://192.168.1.101:9300/"
 
 
 def main(url):
