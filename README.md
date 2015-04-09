@@ -8,6 +8,8 @@
 
 [http://homeway.me/2015/03/30/play-music-through-senses/](http://homeway.me/2015/03/30/play-music-through-senses/)
 
+Please use chrome!
+
 <hr><br>
 
 # 其他创意
